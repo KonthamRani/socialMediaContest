@@ -13,7 +13,12 @@ const App = () => {
     
     fetch(`https://jsonplaceholder.typicode.com/posts?_page=${page}&_limit=20`)
     .then(response => response.json())
-    .then(data => setPosts([...posts, ...data]))
+    .then(data =>
+    setPosts(prevPosts => {
+      // compute new state based on prevPosts
+      const updatedPosts=[...data,...prevPosts]
+      return updatedPosts;
+    }))
     .catch(error => console.log(error));
     
     
