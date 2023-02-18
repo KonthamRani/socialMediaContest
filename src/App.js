@@ -10,19 +10,14 @@ const App = () => {
   const [likes,setLikes]=useState(0)
   const [searchedText,setSearchText]=useState("")
   useEffect(()=>{
-    // const fetchPosts=async ()=>{
-    //   const response=await fetch(`https://jsonplaceholder.typicode.com/posts?_page=${page}&_limit=20`);
-    //   setPosts(...posts,...response.data)
-    //   console.log(response)
-    // }
-    // fetchPosts();
+    
     fetch(`https://jsonplaceholder.typicode.com/posts?_page=${page}&_limit=20`)
     .then(response => response.json())
     .then(data => setPosts([...posts, ...data]))
     .catch(error => console.log(error));
     console.log(posts)
 
-  },[page])
+  },[page,posts])
   console.log("after use effect",posts)
   const handleButton=()=>{
     setPage(page+1);
@@ -30,8 +25,6 @@ const App = () => {
   const handleLike = () => {
     setLikes(likes + 1);
   };
-  console.log(posts)
-  // const filteredPosts=posts
   const filteredPosts = posts.filter(post => post.title.includes(searchedText));
   return (
 

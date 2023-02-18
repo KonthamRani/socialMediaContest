@@ -1,14 +1,11 @@
 import React,{useState} from 'react';
 import './Post.css'
 
-const Post = ({keys,title,likesUi,username,image}) => {
+const Post = ({keys,title,image}) => {
 
-    const [currentPage, setCurrentPage] = useState(1);
     
     const [likes,setLikes]=useState(0);
-    const handleLoadMore = () => {
-        setCurrentPage(currentPage + 1);
-      };
+    
     
     
       const handleLike = () => {
