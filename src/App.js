@@ -20,8 +20,10 @@ const App = () => {
     .then(response => response.json())
     .then(data => setPosts([...posts, ...data]))
     .catch(error => console.log(error));
+    console.log(posts)
 
   },[page])
+  console.log("after use effect",posts)
   const handleButton=()=>{
     setPage(page+1);
   }
@@ -29,6 +31,7 @@ const App = () => {
     setLikes(likes + 1);
   };
   console.log(posts)
+  // const filteredPosts=posts
   const filteredPosts = posts.filter(post => post.title.includes(searchedText));
   return (
 
@@ -36,9 +39,12 @@ const App = () => {
       <Search setSearchText={setSearchText}/>
       <br />
       <div className='Post'>
-      {posts.map(post => {
+      {filteredPosts.map(post => (
+
+      
          <Post
          key={post.id}
+         keys={post.id}
          username={post.userId}
          image={` https://picsum.photos/200?random=${post.id}`}
          title={post.title}
@@ -46,7 +52,7 @@ const App = () => {
          likesUi={likes}
        />
 
-})}
+))}
       
       
       </div>

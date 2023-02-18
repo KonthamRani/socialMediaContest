@@ -29,12 +29,32 @@ button {
 img{
     object-fit: cover;
     height: 23.3em;
-    /* width: 20.3em; */
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
 }
 .Card{
     border: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: 30px;
-    
+    border-radius: 30px;  
+}
+@media only screen and (max-width:600px){
+    img{
+        object-fit: cover;
+        height: 180px;
+        width: 100%;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+    .Card{
+        border-radius:10px;
+    }
+    button{
+        border-radius: 10px;
+        padding: 5px 10px;
+        width: 100%;
+        
+        font-size: 12px;
+    }
+    span{
+        font-size: 13px;
+    }
 }
