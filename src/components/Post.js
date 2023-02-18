@@ -19,7 +19,7 @@ const Post = ({keys,title,likesUi,username,image}) => {
     return (
         <div className="Card" key={keys}>
             <div className="image">
-                <img src={image} alt={username} height="100%" width="100%" />
+                <img src={image} alt="" height="100%" width="100%" />
             </div>
             <div className='body'>
                 
