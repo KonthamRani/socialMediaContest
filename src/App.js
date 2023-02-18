@@ -15,9 +15,10 @@ const App = () => {
     .then(response => response.json())
     .then(data => setPosts([...posts, ...data]))
     .catch(error => console.log(error));
-    console.log(posts)
+    
+    
 
-  },[page,posts])
+  },[page])
   console.log("after use effect",posts)
   const handleButton=()=>{
     setPage(page+1);
